@@ -42,6 +42,7 @@ export default {
         username: "",
         password: "",
       },
+      url: process.env.VUE_APP_BACKEND_URL,
     };
   },
   methods: {
@@ -53,7 +54,7 @@ export default {
         this.errorMessage = "Password is empty";
         return;
       }
-      var response = await fetch("http://localhost:8000/api/v1/user/login", {
+      var response = await fetch(`${this.url}/api/v1/user/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

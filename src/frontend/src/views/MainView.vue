@@ -28,6 +28,7 @@ export default {
       foodlog: [],
       progress: [],
       errorMessage: "",
+      url: process.env.VUE_APP_BACKEND_URL,
     };
   },
   async mounted() {
@@ -36,13 +37,16 @@ export default {
   },
   methods: {
     async getFoodLog() {
-      var response = await fetch("http://localhost:8000/api/v1/calorie", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Bearer " + Cookies.get("token"),
-        },
-      });
+      var response = await fetch(
+        `${this.url}/api/v1/calorie`, 
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + Cookies.get("token"),
+          },
+        }
+      );
       var data = await response.json();
       if (response.ok) {
         this.foodlog = data;
@@ -52,7 +56,7 @@ export default {
     },
     async getProgressData() {
       var response = await fetch(
-        "http://localhost:8000/api/v1/calorie/progress",
+        `${this.url}/api/v1/calorie/progress`,
         {
           method: "GET",
           headers: {

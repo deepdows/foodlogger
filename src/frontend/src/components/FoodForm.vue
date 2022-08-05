@@ -82,7 +82,7 @@
       <div class="form-floating formSalt">
         <input
           type="number"
-          step="0.1"
+          step="0.01"
           class="form-control"
           id="formSalt"
           placeholder="Salt"

@@ -41,12 +41,13 @@ export default {
     },
     data: function(){
         return {
-            errorMessage: ""
+            errorMessage: "",
+            url: process.env.VUE_APP_BACKEND_URL,
         }
     },
     methods: {
         async deleteLogById(id){
-            var response = await fetch(`http://localhost:8000/api/v1/calorie/${id}`, {
+            var response = await fetch(`${this.url}/api/v1/calorie/${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",

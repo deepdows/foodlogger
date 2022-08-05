@@ -17,7 +17,7 @@ class FoodLog(Base):
     calories = Column(Numeric(5,1), nullable=False, default=0)
     carbohydrates = Column(Numeric(4,1), nullable=False, default=0)
     sugar = Column(Numeric(4,1), nullable=False, default=0)
-    salt = Column(Numeric(4,1), nullable=False, default=0)
+    salt = Column(Numeric(5,2), nullable=False, default=0)
     protein = Column(Numeric(4,1), nullable=False, default=0)
 
     created_date = Column(DateTime, default=datetime.now)

@@ -31,12 +31,11 @@ export default {
   },
   methods: {
     getColorByPercent(percent) {
-      if (percent < 50) return "green";
-      else if (percent < 75) return "orange";
+      if (percent < 80) return "green";
+      else if (percent < 90) return "orange";
       else return "red";
     },
     maxHundred(number) {
-      console.log(number);
       if (number > 100) return 100;
       else return number;
     },
