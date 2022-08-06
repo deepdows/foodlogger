@@ -50,7 +50,6 @@ export default {
             var response = await fetch(`${this.url}/api/v1/calorie/${id}`, {
                 method: "DELETE",
                 headers: {
-                    "Content-Type": "application/json",
                     "Authorization": "Bearer " + Cookies.get('token')
                 },
             });

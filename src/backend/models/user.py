@@ -7,6 +7,7 @@ from db.base import Base, engine
 
 class User(Base):
     __tablename__ = 'user'
+    # __table_args__ = {'extend_existing': True}
 
     id = Column(Integer, primary_key=True)
     username = Column(String(80), nullable=False, unique=True)
@@ -20,5 +21,3 @@ class User(Base):
 
     def __str__(self):
         return self.username
-
-Base.metadata.create_all(engine)

@@ -57,17 +57,6 @@
         />
         <label for="formCarbohydrates">Carbohydrates</label>
       </div>
-      <div class="form-floating formProtein">
-        <input
-          type="number"
-          step="0.1"
-          class="form-control"
-          id="formProtein"
-          placeholder="Protein"
-          v-model="form.protein"
-        />
-        <label for="formProtein">Protein</label>
-      </div>
       <div class="form-floating formSugar">
         <input
           type="number"
@@ -78,6 +67,17 @@
           v-model="form.sugar"
         />
         <label for="formSugar">Sugar</label>
+      </div>
+      <div class="form-floating formProtein">
+        <input
+          type="number"
+          step="0.1"
+          class="form-control"
+          id="formProtein"
+          placeholder="Protein"
+          v-model="form.protein"
+        />
+        <label for="formProtein">Protein</label>
       </div>
       <div class="form-floating formSalt">
         <input
@@ -104,6 +104,7 @@ export default {
   name: "FoodForm",
   data: function () {
     return {
+      url: process.env.VUE_APP_BACKEND_URL,
       errorMessage: "",
       form: {
         name: "",
@@ -140,7 +141,7 @@ export default {
     async createFoodLog(event) {
       var form = this.removeEmptyFields(this.form);
 
-      var response = await fetch("http://localhost:8000/api/v1/calorie", {
+      var response = await fetch(`${this.url}/api/v1/calorie`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

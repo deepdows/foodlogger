@@ -42,7 +42,6 @@ export default {
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
             Authorization: "Bearer " + Cookies.get("token"),
           },
         }
@@ -60,7 +59,6 @@ export default {
         {
           method: "GET",
           headers: {
-            "Content-Type": "application/json",
             Authorization: "Bearer " + Cookies.get("token"),
           },
         }
