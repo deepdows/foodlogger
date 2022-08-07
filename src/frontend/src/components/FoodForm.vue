@@ -90,10 +90,13 @@
         />
         <label for="formSalt">Salt</label>
       </div>
-      <button class="formSubmit" type="submit">Submit</button>
-      <button class="formClear" type="button" @click="clearAllFields">
+      
+      <el-button class="formSubmit" type="primary" native-type="submit">Submit</el-button>
+      <el-button class="formClear" type="danger" native-type="button" @click="clearAllFields" plain>Clear</el-button>
+      <!-- <button class="formSubmit" type="submit"></button> -->
+      <!-- <button class="formClear" type="button" >
         Clear
-      </button>
+      </button> -->
     </form>
     <p class="warning-text">{{ errorMessage }}</p>
   </div>
@@ -169,6 +172,10 @@ form {
   display: grid;
   gap: 15px;
   grid-auto-flow: row;
+  
+  .formClear{
+    margin: 0;
+  }
 
   @media screen and (max-width: 379) {
     .formName {
