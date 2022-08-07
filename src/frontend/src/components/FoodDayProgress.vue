@@ -3,16 +3,11 @@
     <ul>
       <li v-for="element in progress" :key="element.category">
         <div class="category">{{ element.category }}</div>
-        <div class="bar">
-          <div
-            class="progress"
-            :style="{
-              background: getColorByPercent(element.percent),
-              width: maxHundred(element.percent) + '%',
-            }"
-          ></div>
-          <span class="percent">{{ element.percent }}%</span>
-        </div>
+        <el-progress
+          :stroke-width="16"
+          :color="getColorByPercent(element.percent)"
+          :percentage="element.percent"
+        />
       </li>
     </ul>
   </div>
@@ -34,44 +29,28 @@ export default {
       if (percent < 80) return "green";
       else if (percent < 90) return "orange";
       else return "red";
-    },
-    maxHundred(number) {
-      if (number > 100) return 100;
-      else return number;
-    },
+    }
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .progress-graph {
   margin: 50px 10px 0;
-}
-ul {
-  padding: 0;
-  li {
-    list-style-type: none;
-  }
-}
-.category {
-  margin: 5px;
-  font-size: 20px;
-}
-.bar {
-  overflow: hidden;
-  background: #dfdfdf;
-  width: 100%;
-  padding: 5px;
 
-  .progress {
-    float: left;
-    padding: 15px 2px;
+  .el-progress__text {
+    font-size: 15px !important;
+    min-width: 65px !important;
   }
-  .percent {
-    float: right;
-    font-weight: 600;
-    height: 30px;
-    line-height: 30px;
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+    }
+  }
+  .category {
+    margin: 10px 5px 0;
+    font-size: 20px;
   }
 }
 </style>
